@@ -1,7 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {config} from '../secrets';
+import * as firebase from 'firebase';
 
-ReactDOM.render(
-    <div> Boilerplate </div>,
-    document.getElementById('app')
-)
+
+firebase.initializeApp(config)
+
+ReactDOM.render(<div> Boilerplate </div>, document.getElementById('app'));
