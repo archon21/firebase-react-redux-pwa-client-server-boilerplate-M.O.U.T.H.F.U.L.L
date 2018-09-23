@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {config} from '../secrets';
-import * as firebase from 'firebase';
-import registerServiceWorker from './registerServiceWorker';
+import { Router } from 'react-router-dom';
+import App from './app';
+import history from './history'
+// import registerServiceWorker from './registerServiceWorker';
 
 
-firebase.initializeApp(config)
-
-ReactDOM.render(<div> Boilerplate </div>, document.getElementById('app'));
-registerServiceWorker()
+ReactDOM.render(
+  <Router history={history}>
+    <App />
+  </Router>,
+  document.getElementById('app')
+);
+// registerServiceWorker()

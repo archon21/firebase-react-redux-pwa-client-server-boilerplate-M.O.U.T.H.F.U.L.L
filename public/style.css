@@ -1,0 +1,152 @@
+body {
+    padding: 0;
+    font-family: sans-serif;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  label {
+    display: block;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 1em;
+  }
+
+  form div {
+    margin: 1em;
+    display: inline-block;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
+  }
+
+  .center {
+    align-self: center;
+  }
+
+  .row {
+    flex-direction: row;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+
+  .black {
+    background-color: black;
+  }
+
+  .nav-link-a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.3em;
+    color: white;
+  }
+
+  .page-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  /* #navbar {
+  } */
+
+  #nav-icon1 {
+    width: 60px;
+    height: 45px;
+    left: 10%;
+    top: 4em;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  #nav-icon1 span
+   {
+    display: block;
+    position: absolute;
+    height: .5em;
+    width: 100%;
+    background: white;
+    border-radius: .2em;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  #nav-icon1 span:nth-child(1) {
+    top: 0px;
+  }
+
+  #nav-icon1 span:nth-child(2) {
+    top: 18px;
+  }
+
+  #nav-icon1 span:nth-child(3) {
+    top: 36px;
+  }
+
+  #nav-icon1.open span:nth-child(1) {
+    top: 18px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  #nav-icon1.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+
+  #nav-icon1.open span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+
+  #nav-links {
+    display: flex;
+    justify-content: center;
+  }
+
+  #titleContainer {
+    align-self: center;
+    color: white;
+  }
+
+  #title {
+    font-family: 'Spectral SC', serif;
+    font-size: 4.2em;
+    color: white;
+    align-self: center;
+  }
