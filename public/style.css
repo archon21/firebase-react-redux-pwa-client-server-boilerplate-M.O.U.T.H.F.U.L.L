@@ -14,7 +14,6 @@ label {
 
 nav a {
   display: inline-block;
-  margin: 1em;
 }
 
 form div {
@@ -30,8 +29,12 @@ form div {
   flex-wrap: wrap;
 }
 
-.center {
+.items-center {
   align-self: center;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .row {
@@ -61,23 +64,16 @@ form div {
   position: absolute;
 }
 
-.hover {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: 'red';
-  opacity: 1;
+#nav {
+  height: 80px;
 }
-/* #navbar {
-  } */
 
 #nav-icon1 {
   width: 60px;
   height: 45px;
-  left: 10%;
-  top: 4em;
-  position: relative;
+  left: 15px;
+  top: 15px;
+  position: absolute;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -146,14 +142,25 @@ form div {
   justify-content: center;
 }
 
-#titleContainer {
-  align-self: center;
+
+.nav__title {
+  font-family: 'Spectral SC', serif;
+  font-size: 2em;
   color: white;
+  align-self: center;
 }
 
-#title {
-  font-family: 'Spectral SC', serif;
-  font-size: 4.2em;
-  color: white;
-  align-self: center;
+/* FOOTER */
+#footer {
+  height: 60px;
+  width: 100%;
+  background: black;
 }
+
+.footer__title {
+  color: white;
+  font-size: 2em;
+  position: relative;
+  bottom: 0;
+}
+/* FOOTER */

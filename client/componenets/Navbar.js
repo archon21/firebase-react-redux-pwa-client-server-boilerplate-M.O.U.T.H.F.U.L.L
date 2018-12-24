@@ -14,9 +14,8 @@ class Navbar extends Component {
   render() {
     const { open } = this.state;
     return (
-      <div className="flex column wrap black ">
-        <div id="titleContainer" className="flex wrap row">
-          <h1 id="title">INSERT</h1>
+      <nav id="nav" className="flex column black text-center">
+        <div className="flex row items-center">
           {open ? (
             <div id="nav-icon1" onClick={() => this.onPress()}>
               <span />
@@ -30,18 +29,16 @@ class Navbar extends Component {
               <span />
             </div>
           )}
+        <h1 className="nav__title">INSERT</h1>
         </div>
-        <nav>
-          {!open ? (
-            <div id="nav-links">
-              <Link to="/LandingPage">Home</Link>
-            </div>
-          ) : (
-            <div />
-          )}
-        </nav>
-        <hr />
-      </div>
+        {!open ? (
+          <div id="nav-links">
+            <Link to="/home">Home</Link>
+          </div>
+        ) : (
+          <div />
+        )}
+      </nav>
     );
   }
 }
