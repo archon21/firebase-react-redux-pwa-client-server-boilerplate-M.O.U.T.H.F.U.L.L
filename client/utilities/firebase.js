@@ -1,9 +1,31 @@
-import * as firebase from 'firebase/app';
-import 'firebase/firestore'
-import 'firebase/auth'
-import {config} from '../../secrets'
+const READ_DB = 'READ_DB';
+import { db } from '../utilities/firebase';
 
-firebase.initializeApp(config);
+const defaultState = {
 
-export const db = firebase.firestore()
-export const auth = firebase.auth()
+};
+
+const readDB = (field, data) => ({ [field]: data });
+
+export const willReadDB = field => async dispatch => {
+  try {
+    const collection = db.collection(field);
+    const data = await collection.get().then(snapshots => {
+      const dataArr = [];
+      snapshots.forEach(snapshot => dataArr.push(snapshot.data()));
+      return dataArr;
+    });
+    dispatch(readDB(field, data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export default function(state = defaultState, action) {
+  switch (action.type) {
+    case READ_DB:
+      return { ...state, [action.field]: action.data };
+    default:
+      return state;
+  }
+}
