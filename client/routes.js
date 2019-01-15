@@ -5,9 +5,9 @@ import { NotFound, Loader } from './sub-components';
 
 class Routes extends Component {
   state = { mounted: false };
-  // componentDidMount() {
-  //   this.setState({ mounted: true });
-  // }
+  componentDidMount() {
+    this.setState({ mounted: true });
+  }
   render() {
     const {mounted} = this.state
     return mounted ? (
