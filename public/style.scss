@@ -1,0 +1,42 @@
+@import './scss/spacing.scss';
+@import './scss/alignment.scss';
+@import './scss/footer.scss';
+@import './scss/typography.scss';
+@import './scss/navbar.scss';
+@import './scss/dimensions.scss';
+@import './scss/loader.scss';
+
+body {
+  padding: 0;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  display: block;
+}
+
+nav a {
+  display: inline-block;
+}
+
+form div {
+  margin: 1em;
+  display: inline-block;
+}
+
+
+.black {
+  background-color: black;
+}
+
+
+
+.page-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+}

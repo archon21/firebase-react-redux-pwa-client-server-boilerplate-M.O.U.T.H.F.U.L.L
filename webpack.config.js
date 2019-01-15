@@ -1,13 +1,22 @@
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development';
+const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports = {
-  entry: './client/index.js',
+module.exports = () => ({
+  entry: { bundle: './client/index.js', style: './public/style.scss' },
+  target: 'web',
   mode: isDev ? 'development' : 'production',
   output: {
-    path: __dirname,
-    filename: './public/bundle.js'
+    filename: 'js/bundled.js',
+    path: path.join(__dirname, 'dist')
   },
   devtool: 'source-maps',
+  // optimization: {
+  //   minimizer: [new OptimizeCSSAssetsPlugin()]
+  // },
   module: {
     rules: [
       {
@@ -16,7 +25,24 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve('./node_modules', './public/scss')]
+            }
+          }
+        ]
       }
     ]
-  }
-};
+  },
+  plugins: [
+    //   // new CleanWebpackPlugin('dist', {}),
+    new MiniCssExtractPlugin({ filename: 'css/style.css' })
+  ]
+});

@@ -1,0 +1,20 @@
+@for $i from 0 to 11 {
+  $value: $i * 10;
+  $percent: $value / 100;
+  .w-#{$value} {
+    width: percentage($percent);
+  }
+  .h-#{$value} {
+    height: percentage($percent);
+  }
+}
+
+@for $j from 0 to 30 {
+  $maxVal: $j * 50;
+  .maxw-#{$maxVal}px {
+    max-width: $maxVal + px;
+  }
+  .minw-#{$maxVal}px {
+    min-width: $maxVal + px;
+  }
+}

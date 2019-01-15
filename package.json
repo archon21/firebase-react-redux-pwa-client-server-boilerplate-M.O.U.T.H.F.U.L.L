@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-client": "webpack",
+    "build-client-watch": "webpack -w",
     "start": "node server",
-    "start-dev": "webpack -w & nodemon server",
+    "start-dev": "NODE_ENV='development' npm run build-client-watch & npm run start-server",
+    "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +17,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "css-loader": "^2.1.0",
     "express": "^4.16.3",
     "firebase": "^5.5.1",
     "history": "^4.7.2",
@@ -22,7 +26,10 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack-bundle-analyzer": "^3.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.55",
@@ -43,7 +50,10 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "mini-css-extract-plugin": "^0.4.5",
     "morgan": "^1.9.1",
+    "node-sass": "^4.10.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "redux-devtools-extension": "^2.13.7",
     "redux-logger": "^3.0.6",
     "webpack": "^4.19.1",

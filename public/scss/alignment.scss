@@ -1,0 +1,51 @@
+.flex {
+  display: flex;
+}
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-right {
+  align-items: right;
+}
+.align-left {
+  align-items: left;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}

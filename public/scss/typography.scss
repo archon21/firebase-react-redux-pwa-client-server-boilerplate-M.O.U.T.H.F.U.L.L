@@ -1,0 +1,63 @@
+.body-1 {
+  font-size: 1.135rem;
+  line-height: 1.3rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01886em;
+}
+
+.body-2 {
+  font-size: 0.945rem;
+  line-height: 1.165rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01586em;
+}
+
+.headline-1 {
+  font-size: 6rem;
+  line-height: 6rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01562em;
+}
+
+.headline-2 {
+  font-size: 3.75rem;
+  line-height: 3.75rem;
+  letter-spacing: -0.00833em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.headline-3 {
+  font-size: 3rem;
+  line-height: 3.125rem;
+  letter-spacing: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.headline-4 {
+  font-size: 2.125rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.00735em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.headline-5 {
+  font-size: 1.5rem;
+  letter-spacing: normal;
+  line-height: 2rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

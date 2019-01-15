@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import NavHButton from './NavHButton';
 
 class Navbar extends Component {
   state = {
     open: true
   };
 
-  onPress = () => {
+  toggleNavH = () => {
     const css = !this.state.open;
     this.setState({ open: css });
   };
@@ -14,22 +15,10 @@ class Navbar extends Component {
   render() {
     const { open } = this.state;
     return (
-      <nav id="nav" className="flex column black text-center">
+      <nav id="nav" className="flex column black align-center">
         <div className="flex row items-center">
-          {open ? (
-            <div id="nav-icon1" onClick={() => this.onPress()}>
-              <span />
-              <span />
-              <span />
-            </div>
-          ) : (
-            <div id="nav-icon1" className="open" onClick={() => this.onPress()}>
-              <span />
-              <span />
-              <span />
-            </div>
-          )}
-        <h1 className="nav__title">INSERT</h1>
+          <NavHButton open={open} toggleNavH={this.toggleNavH} />
+          <h1 className="nav__title ">INSERT</h1>
         </div>
         {!open ? (
           <div id="nav-links">
