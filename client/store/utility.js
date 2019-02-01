@@ -1,65 +1,38 @@
 // import axios from 'axios'
 // import history from '../history'
 
-/**
- * ACTION TYPES
-//  */
-// const GET_USER = 'GET_USER'
-// const REMOVE_USER = 'REMOVE_USER'
+const ALERT_INTERACTION = 'ALERT_INTERACTION';
 
-/**
- * INITIAL STATE
- */
-const defaultState = {}
 
-/**
- * ACTION CREATORS
- */
-// const getUser = user => ({type: GET_USER, user})
-// const removeUser = () => ({type: REMOVE_USER})
+const defaultState = {
 
-/**
- * THUNK CREATORS
- */
-// export const me = () => dispatch =>
-//   axios
-//     .get('/auth/me')
-//     .then(res => dispatch(getUser(res.data || defaultUser)))
-//     .catch(err => console.error(err))
+  alertStatus: false,
+  alertTemplate: null,
+}
 
-// export const auth = (email, password, method) => dispatch =>
-//   axios
-//     .post(`/auth/${method}`, {email, password})
-//     .then(
-//       res => {
-//         dispatch(getUser(res.data))
-//         history.push('/home')
-//       },
-//       authError => {
-//         // rare example: a good use case for parallel (non-catch) error handler
-//         dispatch(getUser({error: authError}))
-//       }
-//     )
-//     .catch(dispatchOrHistoryErr => console.error(dispatchOrHistoryErr))
+const alertInteracted = (status, template, customStyles) => ({
+  type: ALERT_INTERACTION,
+  status,
+  template,
+  customStyles
+});
+export const alertInteraction = (
+  status,
+  template,
+  customStyles
+) => dispatch => {
+  dispatch(alertInteracted(status, status ? template : <div />, customStyles));
+};
 
-// export const logout = () => dispatch =>
-//   axios
-//     .post('/auth/logout')
-//     .then(_ => {
-//       dispatch(removeUser())
-//       history.push('/login')
-//     })
-//     .catch(err => console.error(err))
-
-/**
- * REDUCER
- */
 export default function(state = defaultState, action) {
   switch (action.type) {
-    // case GET_USER:
-    //   return action.user
-    // case REMOVE_USER:
-    //   return defaultUser
+    case ALERT_INTERACTION:
+    return {
+      ...state,
+      alertStatus: action.status,
+      alertTemplate: action.template,
+      customStyles: action.customStyles
+    };
     default:
       return state
   }
