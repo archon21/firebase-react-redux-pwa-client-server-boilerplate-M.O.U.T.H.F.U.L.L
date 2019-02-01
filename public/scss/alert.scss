@@ -1,0 +1,19 @@
+.alert {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.32);
+    z-index: 1001;
+    top: 0;
+    left: 0;
+  }
+
+  .alert__catcher {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    cursor: pointer;
+    z-index: 1002;
+  }

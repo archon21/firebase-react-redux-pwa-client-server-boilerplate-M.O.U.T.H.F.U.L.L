@@ -1,5 +1,6 @@
 // import axios from 'axios'
 // import history from '../history'
+import React from 'react'
 
 const ALERT_INTERACTION = 'ALERT_INTERACTION';
 

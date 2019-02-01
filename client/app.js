@@ -32,8 +32,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   menu: state,
-  alertTemplate: state.utilities.alertTemplate,
-  alertStatus: state.utilities.alertStatus
+  alertTemplate: state.util.alertTemplate,
+  alertStatus: state.util.alertStatus
 });
 
 const mapDispatchToProps = dispatch => ({
