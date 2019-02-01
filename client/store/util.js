@@ -4,7 +4,6 @@ import React from 'react'
 
 const ALERT_INTERACTION = 'ALERT_INTERACTION';
 
-
 const defaultState = {
 
   alertStatus: false,
@@ -17,6 +16,7 @@ const alertInteracted = (status, template, customStyles) => ({
   template,
   customStyles
 });
+
 export const alertInteraction = (
   status,
   template,

@@ -1,66 +1,48 @@
-// import axios from 'axios'
-// import history from '../history'
+import { db } from '../utilities/firebase';
 
-// /**
-//  * ACTION TYPES
-//  */
-// const GET_USER = 'GET_USER'
-// const REMOVE_USER = 'REMOVE_USER'
+const READ_DB = 'READ_DB';
 
-// /**
-//  * INITIAL STATE
-//  */
-// const defaultUser = {}
+const defaultState = { menu: [], specials: [] };
 
-// /**
-//  * ACTION CREATORS
-//  */
-// const getUser = user => ({type: GET_USER, user})
-// const removeUser = () => ({type: REMOVE_USER})
+const readDB = (field, data) => ({ type: READ_DB, data, field });
 
-// /**
-//  * THUNK CREATORS
-//  */
-// export const me = () => dispatch =>
-//   axios
-//     .get('/auth/me')
-//     .then(res => dispatch(getUser(res.data || defaultUser)))
-//     .catch(err => console.error(err))
+export const willReadDB = field => async dispatch => {
+  try {
+    console.log(field);
+    const collection = db.collection(field);
+    const data = await collection.get().then(snapshots => {
+      const dataArr = [];
+      snapshots.forEach(snapshot => dataArr.push(snapshot.data()));
+      return dataArr;
+    });
+    if (field === 'menu') {
+      const menu = [[], [], []];
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].breakfast) menu[0].push(data[i]);
+        if (data[i].lunch) menu[1].push(data[i]);
+        if (data[i].dinner) menu[2].push(data[i]);
+      }
+      dispatch(readDB(field, menu));
+    }
+    if (field === 'specials') {
+      const specials = data;
+      dispatch(readDB(field, specials));
+    }
+    if (field === 'images') {
+      const images = data
+      dispatch(readDB(field, images))
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-// export const auth = (email, password, method) => dispatch =>
-//   axios
-//     .post(`/auth/${method}`, {email, password})
-//     .then(
-//       res => {
-//         dispatch(getUser(res.data))
-//         history.push('/home')
-//       },
-//       authError => {
-//         // rare example: a good use case for parallel (non-catch) error handler
-//         dispatch(getUser({error: authError}))
-//       }
-//     )
-//     .catch(dispatchOrHistoryErr => console.error(dispatchOrHistoryErr))
 
-// export const logout = () => dispatch =>
-//   axios
-//     .post('/auth/logout')
-//     .then(_ => {
-//       dispatch(removeUser())
-//       history.push('/login')
-//     })
-//     .catch(err => console.error(err))
-
-// /**
-//  * REDUCER
-//  */
-// export default function(state = defaultUser, action) {
-//   switch (action.type) {
-//     case GET_USER:
-//       return action.user
-//     case REMOVE_USER:
-//       return defaultUser
-//     default:
-//       return state
-//   }
-// }
+export default function(state = defaultState, action) {
+  switch (action.type) {
+    case READ_DB:
+      return { ...state, [action.field]: action.data };
+    default:
+      return state;
+  }
+}
