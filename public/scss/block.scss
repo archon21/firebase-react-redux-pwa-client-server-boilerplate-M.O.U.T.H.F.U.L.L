@@ -1,53 +1,119 @@
-
 .info-card {
-    background: $color-primary;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px,
-      rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
-    border-radius: 5px;
-    width: 100%;
-    height: 100%;
-    min-width: 325px;
-    min-height: 30px;
-  }
+  background: $color-primary;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  min-width: 325px;
+  min-height: 30px;
+}
 
-  .card {
-    background-color: #fff;
-    background-color: var(--mdc-theme-surface, #fff);
-    border-radius: 2px;
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-  }
+.card {
+  background-color: #fff;
+  background-color: var(--mdc-theme-surface, #fff);
+  border-radius: 2px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
 
-  .knife-card {
-    width: 325px;
-    height: 325px;
-    position: relative;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-  }
+.knife-card {
+  width: 325px;
+  height: 325px;
+  position: relative;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
 
-  .knife-card img {
-    width: 325px;
-    height: 325px;
-    position: absolute;
-    opacity: 1;
-    z-index: 0;
-  }
+.knife-card img {
+  width: 325px;
+  height: 325px;
+  position: absolute;
+  opacity: 1;
+  z-index: 0;
+}
 
-  .knife-card:hover .inner {
-    opacity: 1;
-    transition: all 0.4s;
-  }
+.knife-card:hover .inner {
+  opacity: 1;
+  transition: all 0.4s;
+}
 
-  .knife-card .inner {
-    background: rgba(0, 0, 0, 0.4);
-    height: 325px;
-    width: 325px;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.4s;
-  }
+.knife-card .inner {
+  background: rgba(0, 0, 0, 0.4);
+  height: 325px;
+  width: 325px;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.4s;
+}
 
+.slide-block {
+  display: block;
+  border-left: 1px solid $color-primary;
+  margin: 10px;
+  transition: all 0.4s ease-out;
+  min-width: 325px;
+  min-height: 325px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
 
+.slide-block:hover {
+  color: $color-secondary;
+}
+
+.slide-block::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: $color-primary;
+  transform-origin: left;
+  transition: width 0.25s ease;
+  z-index: -1;
+}
+.slide-block:hover::after {
+  width: 100%;
+}
+
+.slide-block p {
+  opacity: 0;
+  transition: all 0.5s;
+  font-size: 1em;
+}
+
+.slide-block:hover p {
+  opacity: 1;
+  color: $color-secondary;
+  margin: 0 0 5% 0;
+}
+.slide-block h2 {
+  color: $color-primary;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.slide-block:hover h2 {
+  color: $color-secondary;
+  opacity: 1;
+  top: 20px;
+}
+
+.slide-block img {
+  position: absolute;
+  opacity: 1;
+  left: 43%;
+  top: 30%;
+}
+
+.slide-block:hover img {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}

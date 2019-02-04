@@ -6,7 +6,18 @@ class Home extends Component {
     return (
       <WindoW>
         <h1 className="headline-4 link">This is the landing page</h1>
-        <Block style={{ maxWidth: '400px', maxHeight: '400px' }}>
+        <Block type="info-card" style={{ maxWidth: '400px', maxHeight: '400px' }}>
+          <h4 className="headline-4 color-secondary p-20px">Comentarii</h4>
+          <p className="body-1 color-secondary p-20px">
+            All Gaul is divided into three parts, one of which the Belgae
+            inhabit, the Aquitani another, those who in their own language are
+            called Celts, in our Gauls, the third. All these differ from each
+            other in language, customs and laws. The river Garonne separates the
+            Gauls from the Aquitani; the Marne and the Seine separate them from
+            the Belgae.{' '}
+          </p>
+        </Block>
+        <Block type="slide-block" style={{ maxHeight: '400px', maxWidth: '400px' }}>
           <h4 className="headline-4 color-secondary p-20px">Comentarii</h4>
           <p className="body-1 color-secondary p-20px">
             All Gaul is divided into three parts, one of which the Belgae
