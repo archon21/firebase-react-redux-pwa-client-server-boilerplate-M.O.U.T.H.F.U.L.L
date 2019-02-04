@@ -6,12 +6,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = () => ({
-  entry: { bundle: './client/index.js', style: './public/style.scss' },
+  entry: { bundled: './client/index.js', style: './public/style.scss' },
   target: 'web',
   mode: isDev ? 'development' : 'production',
   output: {
-    filename: 'js/bundled.js',
-    path: path.join(__dirname, 'dist')
+    filename: '[name].js',
+
+    path: path.join(__dirname, 'public', 'js'),
+    chunkFilename: '[id].[chunkhash].js'
   },
   devtool: 'source-maps',
   // optimization: {
