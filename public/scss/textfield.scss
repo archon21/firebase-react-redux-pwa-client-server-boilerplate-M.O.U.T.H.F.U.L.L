@@ -1,3 +1,37 @@
-.textfield {
+@import'./color.scss';
 
+.num-input {
+    border-radius: 5px;
+    border: 1px solid #333;
+    height: 75px;
+    width: 50px;
+    font-size: 30px;
+    text-align: center;
+    font-family: Oxygen, sans-serif;
 }
+
+.num-input:focus {
+    outline: none;
+}
+
+.textfield:focus {
+    outline: 1px solid $color-primary;
+    padding: 25px;
+    width: 45%;
+    transition: all 0.4s;
+  }
+
+  .textfield {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 20px;
+    height: 60px;
+    color: $color-primary;
+    border: none;
+    padding: 15px;
+    background: transparent;
+    transition: all 0.4s;
+    width: 40%;
+    min-width: 325px;
+    margin: 15px;
+    border: 1px solid $color-primary;
+  }

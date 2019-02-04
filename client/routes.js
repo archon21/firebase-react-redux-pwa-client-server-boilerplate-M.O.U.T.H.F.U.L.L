@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import { LandingPage } from './componenets';
+import { Home } from './componenets';
 import { NotFound, Loader } from './sub-components';
 
 class Routes extends Component {
@@ -12,8 +12,8 @@ class Routes extends Component {
     const {mounted} = this.state
     return mounted ? (
       <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/home" component={LandingPage} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
         <Route component={NotFound} />
       </Switch>
     ) : (

@@ -1,3 +1,23 @@
+$color-primary: #333;
+$color-secondary: #fff;
+
+.color-primary {
+    color: $color-primary;
+
+}
+
+.color-secondary {
+    color: $color-secondary;
+}
+
 .color-white {
-    color: white;
+    color: #fff;
+}
+
+.color-black {
+    color: #000;
+}
+
+.fav-black {
+    color: #333;
 }

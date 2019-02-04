@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import NavHButton from './NavHButton';
 import { alertInteraction } from '../../store';
 import { connect } from 'react-redux';
+import Contact from '../Contact';
 
 class Navbar extends Component {
   state = {
@@ -25,9 +26,7 @@ class Navbar extends Component {
   openContact = () => {
     this.props.alertInteraction(
       true,
-      <div className="card">
-        <h1>Contact</h1>
-      </div>
+      <Contact />
     );
   };
 

@@ -8,6 +8,8 @@
 @import './scss/card.scss';
 @import './scss/color.scss';
 @import './scss/alert.scss';
+@import './scss/textfield.scss';
+@import './scss/block.scss';
 
 body {
   padding: 0;
@@ -30,16 +32,4 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
-}
-
-
-.black {
-  background-color: black;
-}
-
-
-
-.page-text {
-  font-family: 'Raleway', sans-serif;
-  font-size: 2em;
 }
