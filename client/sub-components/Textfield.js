@@ -12,17 +12,25 @@ class Textfield extends Component {
     console.log(name, value);
   };
   render() {
-      const { value } = this.state;
-      const { name, required, type } = this.props;
+    const { value } = this.state;
+    const { name, required, type, placeholder, error} = this.props;
     return (
-      <input
-        name={name}
-        onChange={this.handleChange}
-        className="textfield"
-        value={value}
-        type={type ? type : name}
-        required={required}
-      />
+      <div className="textfield-wrapper">
+        <input
+          name={name}
+          onChange={this.handleChange}
+          className="textfield"
+          value={value}
+          type={type ? type : name}
+          required={required}
+          placeholder={placeholder ? placeholder : name}
+        />
+        {error && (
+          <div className="card textfield__message">
+            <p className="body-1 color-primary">This is a required field!</p>
+          </div>
+        ) }
+      </div>
     );
   }
 }

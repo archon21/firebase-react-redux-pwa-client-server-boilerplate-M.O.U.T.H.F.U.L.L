@@ -21,6 +21,11 @@
     transition: all 0.4s;
   }
 
+  .textfield-wrapper {
+      position: relative;
+      margin: 20px;
+  }
+
   .textfield {
     font-family: 'Oxygen', sans-serif;
     font-size: 20px;
@@ -32,6 +37,12 @@
     transition: all 0.4s;
     width: 40%;
     min-width: 325px;
-    margin: 15px;
     border: 1px solid $color-primary;
+  }
+
+
+  .textfield__message {
+      position: absolute;
+      bottom: -47px;
+      padding: 10px;
   }

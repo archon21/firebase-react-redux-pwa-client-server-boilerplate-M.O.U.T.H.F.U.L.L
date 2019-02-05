@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import firebase from './firebase'
 import util from './util'
+import init from './init'
 
-const reducer = combineReducers({firebase, util})
+const reducer = combineReducers({firebase, util, init})
 let middleware;
 process.env.NODE_ENV === 'development'
   ? (middleware = composeWithDevTools(
@@ -18,3 +19,4 @@ const store = createStore(reducer, middleware);
 export default store
 export * from './firebase'
 export * from './util'
+export * from './init'
