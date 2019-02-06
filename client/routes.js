@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import { Home } from './componenets';
+import { Home, Info, SinglePage } from './componenets';
 import { NotFound, Loader } from './sub-components';
 
 class Routes extends Component {
@@ -9,11 +9,13 @@ class Routes extends Component {
     this.setState({ mounted: true });
   }
   render() {
-    const {mounted} = this.state
+    const { mounted } = this.state;
     return mounted ? (
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={Info} />
+        <Route path="/singlepage/:page" component={SinglePage} />
         <Route component={NotFound} />
       </Switch>
     ) : (

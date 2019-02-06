@@ -9,6 +9,7 @@ module.exports = () => ({
   entry: { bundled: './client/index.js', style: './public/style.scss' },
   target: 'web',
   mode: isDev ? 'development' : 'production',
+
   output: {
     filename: '[name].js',
 

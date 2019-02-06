@@ -1,0 +1,98 @@
+@import './color.scss';
+@import './typography.scss';
+
+.mdc-fab-container {
+    position: fixed;
+    bottom: 15;
+    right: 15;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  .fab-icon-holder {
+    width: 50px;
+    height: 50px;
+    border-radius: 999px;
+    background: $color-primary;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transform:  rotate(0deg);
+    transition: transform .3s;
+  }
+
+  .fab:hover {
+    opacity: 0.8;
+    transform: rotate(-90deg);
+    transition: transform .3s;
+  }
+  .fab-options:hover + .fab
+  {
+    opacity: 0.8;
+    transform: rotate(-90deg);
+    transition: transform .3s;
+  }
+
+  .fab-icon-holder i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: $color-secondary;
+    font-style: 25px;
+  }
+
+  .fab {
+    width: 60px;
+    height: 60px;
+    background: $color-primary;
+  }
+
+  .fab-options {
+    list-style-type: none;
+    margin: 0%;
+    padding-bottom: 10px;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: scale(0);
+    transform-origin: 85% bottom;
+  }
+
+  .share-fab-options {
+    right: 12px !important;
+  }
+
+
+  .fab:hover + .fab-options,
+  .fab-options:hover {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .share-fab:hover + .fab-options,
+  .fab-options:hover {
+    opacity: 1;
+    transform: scale(1)
+
+  }
+
+  .fab-options li {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+  }
+
+  .fab-label {
+    align-self: center;
+    user-select: none;
+    white-space: nowrap;
+    font-size: 18px;
+    color: white;
+    background-color: $color-secondary;
+    font-family: $font-primary;
+    margin-right: 10px;
+    border-radius: 15px;
+    opacity: 1;
+    transform: opacity 0.5s;
+  }
