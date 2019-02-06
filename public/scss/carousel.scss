@@ -3,7 +3,7 @@
 .carosuel-left-button {
     display: block;
     border-radius: 999px;
-    background-color: white;
+    background-color: $color-secondary;
     opacity: 0.5;
     height: 80px;
     width: 80px;
@@ -12,6 +12,7 @@
     right: 10px;
     top: 50%;
     z-index: 100;
+
   }
 
   .carosuel-left-button span:nth-child(1) {
@@ -35,10 +36,25 @@
     bottom: 13px;
   }
 
+  .carosuel-left-button:hover {
+    background-color: $color-primary;
+    transition: all .3s;
+  }
+
+  .carosuel-left-button:hover span:nth-child(1)  {
+    background-color: $color-secondary;
+    transition: all .3s;
+  }
+
+  .carosuel-left-button:hover span:nth-child(2)  {
+    background-color: $color-secondary;
+    transition: all .3s;
+  }
+
   .carosuel-right-button {
     display: block;
     border-radius: 999px;
-    background-color: white;
+    background-color: $color-secondary;
     opacity: 0.5;
     height: 80px;
     width: 80px;
@@ -47,6 +63,23 @@
     left: 10px;
     top: 50%;
     z-index: 100;
+    transition: all .3s;
+    cursor: pointer;
+  }
+
+  .carosuel-right-button:hover {
+    background-color: $color-primary;
+    transition: all .3s;
+  }
+
+  .carosuel-right-button:hover span:nth-child(1)  {
+    background-color: $color-secondary;
+    transition: all .3s;
+  }
+
+  .carosuel-right-button:hover span:nth-child(2)  {
+    background-color: $color-secondary;
+    transition: all .3s;
   }
 
   .carosuel-right-button span:nth-child(1) {
@@ -57,6 +90,7 @@
     display: block;
     transform: rotate(50deg);
     left: 30px;
+    transition: all .3s;
     top: 10px;
   }
   .carosuel-right-button span:nth-child(2) {

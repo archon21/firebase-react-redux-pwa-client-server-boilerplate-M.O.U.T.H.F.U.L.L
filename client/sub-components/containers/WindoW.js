@@ -1,11 +1,11 @@
 import React from 'react';
 
 const WindoW = props => {
-  const { style } = props;
+  const {backgroundUrl, background, imgFixed } = props;
   return (
     <div
-      style={style}
-      className="flex column align-center minw-100vw minh-100vh"
+      style={{backgroundImage: `url(${backgroundUrl})`}}
+      className={`${background} ${backgroundUrl && 'background-cover'} flex column align-center minw-100vw minh-100vh`}
     >
       {props.children}
     </div>

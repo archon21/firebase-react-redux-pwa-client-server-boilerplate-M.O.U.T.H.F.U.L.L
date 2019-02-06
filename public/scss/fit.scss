@@ -1,0 +1,19 @@
+.object-cover {
+  object-fit: cover;
+}
+
+.object-contain {
+  object-fit: contain;
+}
+
+.background-contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.background-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

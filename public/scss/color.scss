@@ -1,14 +1,24 @@
 $color-primary: #333;
 $color-secondary: #fff;
 
-.color-primary {
-    color: $color-primary;
 
+.color-primary {
+   color: $color-primary;
+}
+
+
+
+.background-primary {
+    background-color: $color-primary;
 }
 
 .color-secondary {
     color: $color-secondary;
-}
+ }
+
+ .background-secondary {
+     background-color: $color-secondary;
+ }
 
 .color-white {
     color: #fff;
@@ -21,3 +31,4 @@ $color-secondary: #fff;
 .fav-black {
     color: #333;
 }
+
