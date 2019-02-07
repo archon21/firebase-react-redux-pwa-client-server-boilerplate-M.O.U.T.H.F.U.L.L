@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Textfield } from '../../sub-components';
+import {connect} from 'react-redux'
+import {alertInteraction} from '../../store'
 
 class ContactForm extends Component {
   state = {
@@ -30,7 +32,12 @@ class ContactForm extends Component {
     const { error } = this.state;
     return (
       <form className="flex column align-center" onSubmit={this.handleSubmit}>
+        <div className="flex row align-center">
+        <button type="button" onClick={() => this.props.alertInteraction(false)} className="button--small rounded">
+        <i className="material-icons">cancel</i>
+        </button>
         <h4 className="headline-5 color-primary">How Can We Help?</h4>
+        </div>
         <Textfield error={error.name} name="name" dataHook={this.dataHook} />
         <Textfield error={error.email} name="email" dataHook={this.dataHook} />
         <Textfield
@@ -47,4 +54,8 @@ class ContactForm extends Component {
   }
 }
 
-export default ContactForm;
+const mapDispatchToProps = dispatch => ({
+  alertInteraction: () =>  dispatch(alertInteraction(false))
+})
+
+export default connect(null, mapDispatchToProps)(ContactForm)
