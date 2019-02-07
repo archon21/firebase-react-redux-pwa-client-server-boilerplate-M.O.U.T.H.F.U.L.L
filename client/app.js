@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Navbar, Footer } from './componenets';
+import { Navbar, Footer } from './components';
 import Routes from './routes';
 import { willReadDB, alertInteraction } from './store';
 import { Alert } from './sub-components';

@@ -24,10 +24,7 @@ class Navbar extends Component {
   };
 
   openContact = () => {
-    this.props.alertInteraction(
-      true,
-      <Contact />
-    );
+    this.props.alertInteraction(true, <Contact />);
   };
 
   selectLink = link => {
@@ -38,10 +35,29 @@ class Navbar extends Component {
   render() {
     const { open, selectedLink } = this.state;
     return (
-      <nav id="nav" className="flex column black align-center">
+      <nav id="nav-h" className="flex column black align-center">
         <div className="flex row items-center">
           <NavHButton open={open} toggleNavH={this.toggleNavH} />
           <h1 className="nav__title color-white">INSERT</h1>
+        </div>
+
+        <div className={` ${!open && 'open'} flex row align-center nav-h__links `}>
+          <Link
+            className={`headline-5 color-white p-5px ${selectedLink ===
+              'home' && 'selected'}`}
+            onClick={() => this.selectLink('home')}
+            to={{ pathname: '/home' }}
+          >
+            Home
+          </Link>
+          <Link
+            className={`headline-5 color-white p-5px ${selectedLink ===
+              'home' && 'selected'}`}
+            to={{ pathname: '/about' }}
+            onClick={() => this.selectLink('about')}
+          >
+            About
+          </Link>
           <h1
             className="typograpy--headline4 color-white"
             onClick={this.openContact}
@@ -49,28 +65,6 @@ class Navbar extends Component {
             Contact
           </h1>
         </div>
-        {!open ? (
-          <div id="nav-links">
-            <Link
-              className={`headline-5 color-white p-5px ${selectedLink ===
-                'home' && 'selected'}`}
-              onClick={() => this.selectLink('home')}
-              to={{ pathname: '/home' }}
-            >
-              Home
-            </Link>
-            <Link
-              className={`headline-5 color-white p-5px ${selectedLink ===
-                'home' && 'selected'}`}
-              to={{ pathname: '/about' }}
-              onClick={() => this.selectLink('about')}
-            >
-              About
-            </Link>
-          </div>
-        ) : (
-          <div />
-        )}
       </nav>
     );
   }
@@ -81,7 +75,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(alertInteraction(status, template))
 });
 
-export default withRouter(connect(
-  null,
-  mapDispatchToProps
-)(Navbar))
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(Navbar)
+);

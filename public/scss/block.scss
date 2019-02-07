@@ -19,11 +19,14 @@
   object-fit: cover;
 }
 
+.info-card p {
+  width: 90%;
+}
+
 .info-card:hover {
   background: $color-secondary;
   transition: all 0.4s;
 }
-
 
 .info-card:hover h4 {
   color: $color-primary;
@@ -52,7 +55,6 @@
   position: relative;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
-
 }
 
 .knife-card img {
@@ -75,6 +77,10 @@
   z-index: 1;
   opacity: 0;
   transition: all 0.4s;
+}
+
+.inner h5 {
+  text-align: center;
 }
 
 .slide-block {
@@ -116,26 +122,22 @@
 .slide-block p {
   opacity: 0;
   transition: all 0.5s;
-
 }
 
 .slide-block:hover p {
   opacity: 1;
   color: $color-secondary;
   margin: 0 0 5% 0;
-
 }
 .slide-block h4 {
   color: $color-primary;
   opacity: 1;
   transition: all 0.5s;
-
 }
 
 .slide-block:hover h4 {
   color: $color-secondary;
   top: 20px;
-
 }
 
 .slide-block img {
@@ -151,6 +153,15 @@
 }
 
 .divider {
-box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px, rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
   padding: 20px 0;
+}
+
+.block__border-top {
+  border-top: 2px solid $color-primary;
+}
+
+.block__border-bottom {
+  border-bottom: 2px solid $color-primary;
 }

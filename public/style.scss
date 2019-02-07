@@ -43,3 +43,30 @@ form div {
 button {
   border: none;
 }
+
+.a-wrapper--opacity {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.a-wrapper--left {
+  transform: translate3d(-300%, 0, 0);
+  transition: 640ms ease-in-out;
+}
+
+.visible {
+  transition: 640ms ease-in-out;
+  transform: translate3d(0, 0, 0)!important;
+  opacity: 1;
+}
+
+.a-wrapper--right {
+  transition: 640ms ease-in-out;
+  transform: translate3d(300%, 0, 0);
+}
+
+.a-wrapper--top {
+  transition: 640ms ease-in-out;
+  transform: translate3d(0, 300%, 0);
+
+}

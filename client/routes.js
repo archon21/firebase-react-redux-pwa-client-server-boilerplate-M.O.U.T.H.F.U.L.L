@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import { Home, Info, SinglePage } from './componenets';
+import { Home, Info, SinglePage } from './components';
 import { NotFound, Loader } from './sub-components';
-
+import Privacy from './components/Footer/Privacy'
 class Routes extends Component {
   state = { mounted: false };
   componentDidMount() {
@@ -13,9 +13,10 @@ class Routes extends Component {
     return mounted ? (
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/home" component={Home} />
-        <Route path="/about" component={Info} />
-        <Route path="/singlepage/:page" component={SinglePage} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/about" component={Info} />
+        <Route exact path="/singlepage/:page" component={SinglePage} />
+        <Route exact path="/privacy" component={Privacy} />
         <Route component={NotFound} />
       </Switch>
     ) : (

@@ -17,7 +17,7 @@ class SinglePage extends Component {
       this.setState({target: foundTarget})
     }
   }
-  redner() {
+  render() {
     return (
       <div>
         <WindoW>

@@ -6,3 +6,5 @@ export {default as ShareButtons} from './ShareButtons'
 export {default as Video } from './Video';
 export {default as Carousel} from './Carousel'
 export {default as Fab} from './Fab'
+export {default as List} from './List'
+export {default as Table} from './Table'
