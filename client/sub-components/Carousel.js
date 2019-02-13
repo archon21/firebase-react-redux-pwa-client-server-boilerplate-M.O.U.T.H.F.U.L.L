@@ -55,33 +55,32 @@ class Carousel extends Component {
 
   render() {
     const { focuseditem, inTransition, focusedIndex } = this.state;
-    const { items } = this.props;
+    const { items, contain, primary, secondary, maxHeight, maxWidth } = this.props;
     console.log(focuseditem);
     return (
       <div
-        className={`${inTransition} flex column align-center w-100 maxw-1100px`}
-        style={{ minHeight: '60vh', position: 'relative' }}
+        className={`${inTransition} ${maxWidth && maxWidth} flex column align-center w-100`}
+        style={{  position: 'relative' }}
       >
-        <div className="maxw-1100px w-100" style={{ position: 'relative' }}>
+        <div className={`${maxHeight && maxHeight} ${maxWidth && maxWidth} w-100 h-90`} style={{ position: 'relative' }}>
           <img
-            className="w-100"
+            className={`w-100 h-100 ${maxHeight && maxHeight} ${contain && 'background-primary'}`}
             onLoad={this.handleLoad}
             style={{
-              height: '60vh',
-              borderRadius: '5px',
 
-              objectFit: 'cover',
+              borderRadius: '5px',
+              objectFit: contain ? 'contain' : 'cover',
               boxShadow:
                 'rgba(0, 0, 0, 0.16) 0px 2px 5px 0px, rgba(0, 0, 0, 0.12) 0px 2px 10px 0px'
             }}
-            src={focuseditem.image}
+            src={focuseditem.image ? focuseditem.image : focuseditem}
           />
-          <div className="special-text flex row wrap align-center justify-space-evenly">
-            <p className="headline-4 color-white text-center">
-              {focuseditem.primary}
-            </p>
-            <p className="headline-4 color-white text-center">
-              {focuseditem.secondary}
+          <div className="special-text flex column wrap align-center justify-space-evenly">
+            <h5 className="headline-5 color-white text-center ">
+              {focuseditem.primary ? focuseditem.primary : primary}
+            </h5>
+            <p className="body-1 color-white text-center">
+              {focuseditem.secondary ? focuseditem.secondary : secondary}
             </p>
           </div>
         </div>

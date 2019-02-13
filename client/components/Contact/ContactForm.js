@@ -33,8 +33,8 @@ class ContactForm extends Component {
     return (
       <form className="flex column align-center" onSubmit={this.handleSubmit}>
         <div className="flex row align-center">
-        <button type="button" onClick={() => this.props.alertInteraction(false)} className="button--small rounded">
-        <i className="material-icons">cancel</i>
+        <button type="button" onClick={() => this.props.alertInteraction(false)} className="button small rounded material-icons">
+        cancel
         </button>
         <h4 className="headline-5 color-primary">How Can We Help?</h4>
         </div>

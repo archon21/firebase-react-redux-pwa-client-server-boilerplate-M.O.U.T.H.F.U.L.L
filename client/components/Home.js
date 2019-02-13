@@ -1,191 +1,266 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   Block,
   WindoW,
   GalleryBlock,
-  Divider
+  Flex,
+  Divider,
+  Animator
 } from '../sub-components/containers';
-import { Carousel, Fab, List, Table } from '../sub-components';
+import { Video, Fab, List, Table, Carousel } from '../sub-components';
 
 class Home extends Component {
   state = {
     scrolled: 0
   };
-  infoBlock = React.createRef();
-  infoBlock2 = React.createRef();
+  aboutBlock = React.createRef();
+  charity1 = React.createRef();
+  charity2 = React.createRef();
+  charity3 = React.createRef();
+  charity4 = React.createRef();
+  sportingBlock = React.createRef();
+  sportingBlock2 = React.createRef();
+  carousel = React.createRef();
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 
   handleScroll = e => {
-    console.log(this.state, this.infoBlock, this.infoBlock2);
-    if (this.state.scrolled + e.deltaY >= 0) {
-      this.setState({
-        scrolled: this.state.scrolled + e.deltaY
-      });
-    }
+    this.setState({ scrolled: window.pageYOffset });
   };
+
   render() {
-    const { infoBlock, infoBlock2, state } = this;
+    const {
+      charity1,
+      charity2,
+      charity3,
+      charity4,
+      sportingBlock,
+      sportingBlock2,
+      carousel,
+      state,
+      props,
+      aboutBlock
+    } = this;
+    const { charities, sporting } = props;
     const { scrolled } = state;
+    console.log(aboutBlock);
     return (
-      <div onWheel={this.handleScroll}>
-        <Fab options={[{ name: 'share', label: 'Share' }]} />
-        <Divider border>
-          <h1 className="headliner-1 color-primary">
-            Carousel For Most Important Content
-          </h1>
-        </Divider>
-        <WindoW background="background-primary">
-          <Carousel
-            items={[
-              {
-                image:
-                  'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fjonathangifford.com%2Fwp-content%2Fuploads%2FNapoleon_returned-620x350.jpg&f=1',
-                primary: 'Napoleon Returns from Elba'
-              },
-              {
-                image:
-                  'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.history.com%2Fsites%2F2%2F2015%2F08%2FGettyImages-168966911.jpg&f=1',
-                primary: 'The Ides of March'
-              }
-            ]}
-          />
+      <div style={{ overflowX: 'hidden' }} className="flex column align-center">
+        <WindoW video>
+          <Video video="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Hayes%20Developers.mp4?alt=media&token=6a7ba0b0-fee5-4cd7-ab8a-767d9c4aeaa4" />
         </WindoW>
-        <Divider border background="background-secondary" color="color-primary">
-          <h1 className="headliner-1">
-            Info Blocks For Semi-Important or Informational Content Or Links
-          </h1>
-        </Divider>
-        <WindoW backgroundUrl="https://firebasestorage.googleapis.com/v0/b/ryan-wetmore.appspot.com/o/aerial-architecture-blue-sky-466685.jpg?alt=media&token=7aa85be8-5a3d-4ce9-9411-d54797612395">
-          <div
-            className={`a-wrapper--left ${scrolled >
-              (infoBlock.current && infoBlock.current.offsetHeight + 300) &&
-              'visible'}`}
-            ref={this.infoBlock}
+
+          <Animator
+            inRef={aboutBlock}
+            scrolled={scrolled}
+            animation="a-wrapper--opacity"
+            maxHeight="maxh-400px"
+            maxWidth="maxw-800px"
           >
             <Block
-              ref={this.infoBlock}
               column
-              onClick={() =>
-                this.props.history.push({
-                  pathname: '/singlepage/cool',
-                  state: 'cool'
-                })
-              }
               type="info-card"
-              style={{ maxWidth: '800px', maxHeight: '200px' }}
+              backgroundColor="background-secondary"
+              color="color-primary"
+
             >
-              <h4 className="headline-4 color-secondary p-20px">Comentarii</h4>
-              <p className="body-1 color-secondary p-20px">
-                All Gaul is divided into three parts, one of which the Belgae
-                inhabit, the Aquitani another, those who in their own language
-                are called Celts.
+              <p className="body-1 p-20px">
+                Since 1974, Hayes Developers has been a leader in real estate
+                development, leasing and property management of retail shopping
+                centers. Our longevity and integrity are why many companies in
+                the New England area trust the Hayes Team with their development
+                needs.
               </p>
+
+              <Link to={{ pathname: '/hayes-team' }} className="headliner-4">
+                <h4 className="headline-4 color-primary">
+                  Read More about the Hayes Team
+                </h4>
+              </Link>
             </Block>
-          </div>
-          <div
-            className={`a-wrapper--top ${scrolled >
-              (infoBlock.current && infoBlock.current.offsetHeight + 300) &&
-              'visible'}`}
-            ref={this.infoBlock}
-          >
-            <Block
-              ref={this.infoBlock}
-              column
-              onClick={() =>
-                this.props.history.push({
-                  pathname: '/singlepage/cool',
-                  state: 'cool'
-                })
-              }
-              type="info-card"
-              style={{ maxWidth: '400px', maxHeight: '400px' }}
-            >
-              <h4 className="headline-4 color-secondary p-20px">Comentarii</h4>
-              <p className="body-1 color-secondary p-20px">
-                All Gaul is divided into three parts, one of which the Belgae
-                inhabit, the Aquitani another, those who in their own language
-                are called Celts, in our Gauls, the third. All these differ from
-                each other in language, customs and laws. The river Garonne
-                separates the Gauls from the Aquitani; the Marne and the Seine
-                separate them from the Belgae.{' '}
-              </p>
-            </Block>
-          </div>
-          <div
-            className={`a-wrapper--right ${scrolled >
-              (infoBlock2.current && infoBlock2.current.offsetHeight + 300) &&
-              'visible'}`}
-            ref={this.infoBlock2}
-          >
-            <Block
-              column
-              type="info-card"
-              style={{ maxWidth: '400px', maxHeight: '400px' }}
-            >
-              <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/CompressedMainImages%2FMainBerlinPlaza-min.JPG?alt=media&token=8a138902-d0d5-42a3-832c-9a48ab66423a" />
-              <h4 className="headline-4 color-secondary p-20px">Stors Plaza</h4>
-            </Block>
-          </div>
-        </WindoW>
-        <Divider border>
-          <h1 className="headliner-1 color-primary">Gallery Card For Images</h1>
+          </Animator>
+
+        <Divider
+          border
+          backgroundColor="background-primary"
+          color="color-secondary"
+        >
+          <h1 className="headline-3">Community</h1>
         </Divider>
         <WindoW
-          column={true}
-          backgroundUrl="https://firebasestorage.googleapis.com/v0/b/ryan-wetmore.appspot.com/o/aerial-view-architecture-autumn-280221.jpg?alt=media&token=abcafdb8-c964-40bf-89c8-5b22eb699735"
+          column
+          backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/storrs-rd-plaza%2FDSC_1935%20copy.JPG?alt=media&token=19cc7e5e-cc51-4cfd-8fc0-92dbbaee06ab"
         >
-          <GalleryBlock
-            data={{
-              image:
-                'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Flatinamericanstudies.org%2Faztecs%2FTenochtitlan-2.jpg&f=1',
-              name: 'Tenochtitlan: Jewel Of the Aztecs',
-              url: ''
-            }}
-          />
+          <Flex row>
+            <Animator
+              inRef={charity1}
+              scrolled={scrolled}
+              animation="a-wrapper--left"
+              maxHeight="maxh-450px"
+              maxWidth="maxw-450px"
+            >
+              <Block column type="info-card" full>
+                <h4 className="headline-4 color-secondary p-20px">Charities</h4>
+                <p className="body-1 color-secondary p-20px">
+                  Hayes Developers has long been active in the International
+                  Council of Shopping Centers (ICSC) and ReCON. We are also
+                  strong supporters and sponsors of our community, non-profit
+                  organizations and school systems. The following are some of
+                  the organizations we are proud to support:
+                </p>
+              </Block>
+            </Animator>
+            <Animator
+              inRef={charity2}
+              scrolled={scrolled}
+              animation="a-wrapper--right"
+              maxHeight="maxh-450px"
+              maxWidth="maxw-400px"
+            >
+              <Block
+                column
+                type="info-card"
+                backgroundColor="background-primary"
+                full
+              >
+                <List small list={charities.slice(0, 15)} />
+              </Block>
+            </Animator>
+          </Flex>
+          <Flex row>
+            <Animator
+              inRef={charity3}
+              scrolled={scrolled}
+              animation="a-wrapper--left"
+              maxHeight="maxh-450px"
+              maxWidth="maxw-400px"
+            >
+              <Block
+                column
+                type="info-card"
+                backgroundColor="background-primary"
+                full
+              >
+                <List small list={charities.slice(15, 28)} />
+              </Block>
+            </Animator>
+            <Animator
+              inRef={charity4}
+              scrolled={scrolled}
+              animation="a-wrapper--right"
+              maxHeight="maxh-450px"
+              maxWidth="maxw-400px"
+            >
+              <Block
+                column
+                type="info-card"
+                backgroundColor="background-primary"
+                full
+              >
+                <List small list={charities.slice(28)} />
+              </Block>
+            </Animator>
+          </Flex>
         </WindoW>
-        <Divider border>
-          <h1 className="headliner-1 color-primary">
-            Slide Block For Decorative Content, Whatever That Means...
-          </h1>
+        <Divider
+          border
+          backgroundColor="background-primary"
+          color="color-secondary"
+        >
+          <h1 className="headline-3">Sporting Events</h1>
         </Divider>
+        <WindoW backgroundUrl="https://firebasestorage.googleapis.com/v0/b/ryan-wetmore.appspot.com/o/aerial-view-architecture-autumn-280221.jpg?alt=media&token=abcafdb8-c964-40bf-89c8-5b22eb699735">
+          <Animator
+            inRef={sportingBlock}
+            scrolled={scrolled}
+            animation="a-wrapper--left"
+            maxHeight="maxh-450px"
+            maxWidth="maxw-450px"
+          >
+            <Block column type="info-card" full>
+              <h4 className="headline-4 color-secondary p-20px">
+                Sporting Events Sponsorship
+              </h4>
+              <p className="body-1 color-secondary p-20px">
+                In addition, we sponsor many golf and tennis outings in
+                conjunction with our retailers to help raise money and
+                awareness.
+              </p>
+            </Block>
+          </Animator>
+          <Animator
+            inRef={sportingBlock2}
+            scrolled={scrolled}
+            animation="a-wrapper--right"
+            maxHeight="maxh-450px"
+            maxWidth="maxw-450px"
+          >
+            <Block type="info-card" column full>
+              <List alternating list={sporting} />
+            </Block>
+          </Animator>
+        </WindoW>
+        <Divider
+          border
+          backgroundColor="background-primary"
+          color="color-secondary"
+        >
+          <h1 className="headline-3">Awards</h1>
+        </Divider>
+
         <WindoW
           column={true}
-          backgroundUrl="https://firebasestorage.googleapis.com/v0/b/ryan-wetmore.appspot.com/o/alone-architecture-buildings-220444.jpg?alt=media&token=22ea5d39-4798-4cc2-8bd0-432d2627ce8d"
+          backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/newington-cvs%2FIMG_5701.JPG?alt=media&token=2cad2089-cd56-4c53-b2b0-5cf4f1aaa879"
         >
-          <Block
-            type="info-card"
-            column
-            style={{ maxWidth: '200px', maxHeight: '200px' }}
+          <Animator
+            inRef={carousel}
+            scrolled={scrolled}
+            animation="a-wrapper--opacity"
+            maxHeight="maxh-450px"
+            maxWidth="maxw-900px"
           >
-            <Table
-              tableHead={['Name', 'Age']}
-              tableDataArr={[['Ryan', '23'], ['Ashley', '23']]}
+            <Carousel
+              contain
+              items={[
+                {
+                  image:
+                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGeneralAssembly1999.jpg?alt=media&token=4b1672b6-3c20-4478-bc86-40188c4d2ecd'
+                },
+                {
+                  image:
+                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGroundbreakingFennRdNewington1992.jpg?alt=media&token=30b57496-f2cf-447c-b4f0-add9c3585caf'
+                },
+                {
+                  image:
+                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FECHS1986.jpg?alt=media&token=289c1ccf-a773-4d2b-8d48-efd2e0ec67f8'
+                },
+                {
+                  image:
+                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonBeautificationAward1999.jpg?alt=media&token=c1aefb84-224c-4eec-865c-c9618b051ca2'
+                },
+                {
+                  image:
+                    'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonTownCouncil1999.jpg?alt=media&token=abfa7003-daee-4273-9f5a-f5e8c843094e'
+                }
+              ]}
             />
-          </Block>
-          <Block
-            type="info-card"
-            column
-            style={{ maxWidth: '200px', maxHeight: '200px' }}
-          >
-            <List list={['Caligula', 'Nero', 'Caracalla']} />
-          </Block>
+          </Animator>
         </WindoW>
-        <Block
-          type="slide-block"
-          style={{ maxHeight: '400px', maxWidth: '400px' }}
-        >
-          <h4 className="headline-4 p-20px">Comentarii</h4>
-          <p className="body-1 color-secondary p-20px">
-            All Gaul is divided into three parts, one of which the Belgae
-            inhabit, the Aquitani another, those who in their own language are
-            called Celts, in our Gauls, the third. All these differ from each
-            other in language, customs and laws. The river Garonne separates the
-            Gauls from the Aquitani; the Marne and the Seine separate them from
-            the Belgae.{' '}
-          </p>
-        </Block>
       </div>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  charities: state.init.charities,
+  sporting: state.init.sporting
+});
+
+export default connect(mapStateToProps)(Home);

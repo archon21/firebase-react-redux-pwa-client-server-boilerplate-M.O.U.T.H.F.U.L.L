@@ -10,12 +10,15 @@ class Video extends Component {
   };
   render() {
     const { loaded } = this.state;
-    const { video, children } = this.props;
+    const { video } = this.props;
     return (
-      <div className="relative w-100 h-100">
-        {children}
-        <video style={{top: '0'}} autoPlay loop className="h-100 w-100 object-cover absolute" src={video} />
-      </div>
+      <video
+        style={{ overflow: 'hidden'}}
+        autoPlay
+        loop
+        className="maxw-100 h-100 object-cover"
+        src={video}
+      />
     );
   }
 }

@@ -1,0 +1,131 @@
+
+div.isanim {
+    width:  250px;
+    height: 250px;
+    border: 3px solid black;
+    position: absolute;
+    animation-duration: 18s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    display: block;
+    opacity: 0;
+
+}
+
+div.a {
+    animation-name: ani1;
+    animation-delay: 0s;
+    background-size: contain;
+    background-repeat: none;
+}
+
+div.b {
+    animation-name: ani2;
+    animation-delay: 6s;
+    background-size: contain;
+    background-repeat: none;
+}
+
+div.c {
+    animation-name: ani3;
+    animation-delay: 12s;
+    background-size: contain;
+    background-repeat: none;
+}
+
+div.d {
+    animation-name: ani4;
+    animation-delay: 18s;
+    background-size: contain;
+    background-repeat: none;
+}
+
+
+div.e {
+    animation-name: ani5;
+    animation-delay: 24s;
+    background-size: contain;
+    background-repeat: none;
+}
+@keyframes ani1 {
+    33% {
+        background: url('https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FECHS1986.jpg?alt=media&token=289c1ccf-a773-4d2b-8d48-efd2e0ec67f8');
+        opacity: 1;
+    }
+
+    66% {
+        display: none;
+        opacity: 0
+    }
+}
+
+@keyframes ani2 {
+    0% {
+        display: none;
+        opacity: 0
+    }
+
+    33% {
+        display: block;
+        opacity: 1;
+        background: url('https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGeneralAssembly1999.jpg?alt=media&token=4b1672b6-3c20-4478-bc86-40188c4d2ecd')
+    }
+
+    66% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@keyframes ani3 {
+    0% {
+        display: none;
+        opacity: 0
+    }
+
+    33% {
+        display: block;
+        opacity: 1;
+        background: url('https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGroundbreakingFennRdNewington1992.jpg?alt=media&token=30b57496-f2cf-447c-b4f0-add9c3585caf');
+    }
+
+    66% {
+        display: none;
+        opacity: 0
+    }
+}
+
+@keyframes ani4 {
+    0% {
+        display: none;
+        opacity: 0
+    }
+
+    33% {
+        display: block;
+        opacity: 1;
+        background: url('https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonBeautificationAward1999.jpg?alt=media&token=c1aefb84-224c-4eec-865c-c9618b051ca2');
+    }
+
+    66% {
+        display: none;
+        opacity: 0
+    }
+}
+@keyframes ani5 {
+    0% {
+        display: none;
+        opacity: 0
+    }
+
+    33% {
+        display: block;
+        opacity: 1;
+        background: url('https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonTownCouncil1999.jpg?alt=media&token=abfa7003-daee-4273-9f5a-f5e8c843094e');
+    }
+
+    66% {
+        display: none;
+        opacity: 0
+    }
+}

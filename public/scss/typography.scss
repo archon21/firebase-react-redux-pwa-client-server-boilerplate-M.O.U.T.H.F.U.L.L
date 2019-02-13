@@ -1,22 +1,34 @@
-$font-primary: 'Oxygen', sans-serif;
+$font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Questrial', sans-serif;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0!important;
+  padding: 10px!important;
+}
 
 .body-1 {
   font-size: 1.135rem;
-  line-height: 1.4rem;
+  line-height: 1.9rem;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.01886em;
   margin: 0px;
-
+  font-family: $font-primary;
 }
 
 .body-2 {
   font-size: 0.945rem;
-  line-height: 1.165rem;
+  line-height: 1.465rem;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.01586em;
   margin: 0px;
+  font-family: $font-primary;
 }
 
 .headline-1 {
@@ -26,6 +38,7 @@ $font-primary: 'Oxygen', sans-serif;
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01562em;
   margin: 20px;
+  font-family: $font-secondary;
 }
 
 .headline-2 {
@@ -35,6 +48,7 @@ $font-primary: 'Oxygen', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin: 20px;
+  font-family: $font-secondary;
 }
 
 .headline-3 {
@@ -44,6 +58,7 @@ $font-primary: 'Oxygen', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin: 20px;
+  font-family: $font-secondary;
 }
 
 .headline-4 {
@@ -53,6 +68,7 @@ $font-primary: 'Oxygen', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin: 20px;
+  font-family: $font-secondary;
 }
 
 .headline-5 {
@@ -62,5 +78,15 @@ $font-primary: 'Oxygen', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin: 20px;
+  font-family: $font-secondary;
 }
 
+.headline-6 {
+  font-size: 1.25rem;
+  letter-spacing: normal;
+  line-height: 1.8rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 20px;
+  font-family: $font-secondary;
+}

@@ -1,7 +1,10 @@
 @import './color.scss';
 
-a:hover {
-  text-decoration: underline;
+
+#nav-h a:hover {
+  border: 2px solid $color-secondary;
+  border-radius: 5px;
+  transition: all 0.3s;
 }
 #nav {
   height: 80px;
@@ -14,6 +17,13 @@ a:hover {
   min-height: 80px;
   background: $color-primary;
 }
+
+.nav-h__upper {
+  min-height: 80px;
+  height: 10%;
+}
+
+
 
 #nav-icon1 {
   width: 60px;
@@ -85,10 +95,9 @@ a:hover {
 }
 
 .nav__logo {
-  display: block;
-  position: absolute;
-  left: 30px;
-  top: 6px;
+  width: 400px;
+  object-fit: contain;
+  height: 87px;
 }
 
 .nav-h__links {
@@ -100,7 +109,7 @@ a:hover {
 
 .open {
   transition: all 0.3s;
-  height: 60px;
+  height: 150px;
   z-index: 11;
   opacity: 1;
 }
@@ -119,4 +128,9 @@ a:hover {
   .nav__logo {
     display: none;
   }
+
+  .open {
+    height:320px;
+  }
+
 }

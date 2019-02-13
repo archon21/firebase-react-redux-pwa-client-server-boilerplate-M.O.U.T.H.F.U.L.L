@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import { Home, Info, SinglePage } from './components';
+import { Home, Info, SinglePage, Holdings, LandingCarousel } from './components';
 import { NotFound, Loader } from './sub-components';
 import Privacy from './components/Footer/Privacy'
 class Routes extends Component {
@@ -12,10 +12,11 @@ class Routes extends Component {
     const { mounted } = this.state;
     return mounted ? (
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/about" component={Info} />
-        <Route exact path="/singlepage/:page" component={SinglePage} />
+        <Route exact path="/" component={LandingCarousel} />
+        <Route exact path="/about" component={Home} />
+        <Route exact path="/hayes-team" component={Info} />
+        <Route exact path="/holdings/:type" component={Holdings} />
+        <Route exact path="/holdings/:type/:page" component={SinglePage} />
         <Route exact path="/privacy" component={Privacy} />
         <Route component={NotFound} />
       </Switch>

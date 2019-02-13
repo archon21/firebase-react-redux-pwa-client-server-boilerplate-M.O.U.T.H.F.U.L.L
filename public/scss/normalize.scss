@@ -6,11 +6,7 @@
  *    user zoom.
  */
 
-html {
-  font-family: sans-serif; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
+
 
 /**
  * Remove default margin.
@@ -208,11 +204,6 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
-}
 
 /**
  * Contain overflow in all browsers.

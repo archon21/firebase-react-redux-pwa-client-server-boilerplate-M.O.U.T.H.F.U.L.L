@@ -16,6 +16,11 @@
 @import './scss/fab.scss';
 @import './scss/skeleton.scss';
 @import './scss/normalize.scss';
+@import './scss/awards.scss';
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   padding: 0;
@@ -45,18 +50,47 @@ button {
   border: none;
 }
 
+a:focus {
+  outline: none;
+}
+
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  border-bottom: 1px solid $color-primary;
+  margin-top: 3rem;
+  margin: 2rem 0 2rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1;
+
+}
+
+
+button:focus {
+  outline: none;
+}
+
+
 .a-wrapper--opacity {
   opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: opacity 1s;
 }
 
 .a-wrapper--left {
   transform: translate3d(-300%, 0, 0);
   transition: 640ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .visible {
-  transition: 640ms ease-in-out;
+  transition: 1000ms ease-in-out;
   transform: translate3d(0, 0, 0)!important;
   opacity: 1;
 }
@@ -64,10 +98,88 @@ button {
 .a-wrapper--right {
   transition: 640ms ease-in-out;
   transform: translate3d(300%, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .a-wrapper--top {
   transition: 640ms ease-in-out;
   transform: translate3d(0, 300%, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.list-none {
+  list-style: none;
+}
+
+.underline {
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid;
+
+}
+
+.py-10px {
+  padding: 0 10px;
+}
+
+// LANDING CAROUSEL
+
+#carousel-container {
+  width: 100%;
+  min-height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: 1s ease-in;
+}
+#carousel-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 100%;
+  z-index: 0;
+}
+
+.carousel-img__previous {
+  z-index: -2;
+}
+.carousel-img__next {
+  z-index: -1;
+}
+
+.fade--in--fast {
+  opacity: 1;
+  transition: opacity 0.1s !important;
+}
+
+.fade--out--fast {
+  opacity: 0 !important;
+  transition: opacity 0.1s;
+}
+
+.fade--in {
+  opacity: 1 !important;
+  transition: opacity 0.5s ease-out;
+}
+
+.fade--out {
+  opacity: 0 !important;
+  transition: opacity 0.5s ease-in;
+}
+
+.carosuel-name {
+  position: absolute;
+  bottom: 15;
+  background-color: #014085;
+  color: white;
+  border-radius: 0px 15px 15px 0;
+  font-family: thin, 'Montserrat', sans-serif;
+  padding: 10px;
+  text-align: center;
+  left: 0;
 }

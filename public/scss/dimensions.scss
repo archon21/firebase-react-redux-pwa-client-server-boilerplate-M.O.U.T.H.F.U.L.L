@@ -17,6 +17,16 @@
   .minw-#{$maxVal}px {
     min-width: $maxVal + px;
   }
+  .maxh-#{$maxVal}px {
+    max-height: $maxVal + px;
+  }
+  .minh-#{$maxVal}px {
+    min-height: $maxVal + px;
+  }
+}
+
+.h-100 {
+  height: 100%;
 }
 
 .minh-100vh {
@@ -30,4 +40,16 @@
 
 .w-100vw {
   width: 100vw;
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+.maxw-100 {
+  max-width: 100%;
+}
+
+.maxh-100 {
+  max-height: 100%;
 }
