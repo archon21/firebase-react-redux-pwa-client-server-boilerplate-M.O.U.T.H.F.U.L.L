@@ -55,16 +55,16 @@ class Carousel extends Component {
 
   render() {
     const { focuseditem, inTransition, focusedIndex } = this.state;
-    const { items, contain, primary, secondary, maxHeight, maxWidth } = this.props;
+    const { items, contain, primary, secondary, maxHeight, maxWidth, backgroundColor } = this.props;
     console.log(focuseditem);
     return (
       <div
-        className={`${inTransition} ${maxWidth && maxWidth} flex column align-center w-100`}
+        className={`${inTransition} ${backgroundColor} ${maxWidth && maxWidth} flex column align-center p-20px w-90 `}
         style={{  position: 'relative' }}
       >
-        <div className={`${maxHeight && maxHeight} ${maxWidth && maxWidth} w-100 h-90`} style={{ position: 'relative' }}>
+        <div className={`${maxHeight && maxHeight} ${maxWidth && maxWidth} w-100 h-100`} style={{ position: 'relative' }}>
           <img
-            className={`w-100 h-100 ${maxHeight && maxHeight} ${contain && 'background-primary'}`}
+            className={`w-100 h-90 ${maxHeight && maxHeight} ${contain && 'background-primary'}`}
             onLoad={this.handleLoad}
             style={{
 
@@ -75,7 +75,7 @@ class Carousel extends Component {
             }}
             src={focuseditem.image ? focuseditem.image : focuseditem}
           />
-          <div className="special-text flex column wrap align-center justify-space-evenly">
+          <div className="special-text flex row wrap align-start justify-space-evenly h-10">
             <h5 className="headline-5 color-white text-center ">
               {focuseditem.primary ? focuseditem.primary : primary}
             </h5>

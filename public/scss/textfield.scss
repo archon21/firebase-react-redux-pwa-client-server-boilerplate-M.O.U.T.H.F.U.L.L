@@ -44,5 +44,8 @@
   .textfield__message {
       position: absolute;
       bottom: -47px;
-      padding: 10px;
+      padding: 5px;
+      margin: 0;
+      z-index: 1;
+
   }

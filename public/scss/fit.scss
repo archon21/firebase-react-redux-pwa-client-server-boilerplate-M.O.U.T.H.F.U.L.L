@@ -16,4 +16,14 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-clip: content-box;
+}
+
+
+@media only screen and (max-width: 1050px) {
+  .background-cover {
+
+    background-attachment: unset;
+  }
+
 }

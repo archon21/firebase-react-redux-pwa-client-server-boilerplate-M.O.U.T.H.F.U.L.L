@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { WindoW, Divider, Block } from '../sub-components/containers';
-import { Video } from '../sub-components';
+import { WindoW, Divider, Block, Flex } from '../sub-components/containers';
+import { Video, HoldingCard, Loader } from '../sub-components';
+
+const citys = [
+  'East Hartford',
+  'Manchester',
+  'Glastonbury',
+  'Newington',
+  'Vernon',
+  'Mansfield',
+  'Plainville',
+  'Springfield',
+  'Berlin'
+];
 
 class Holdings extends Component {
   state = {
     type: '',
     holdingsToRender: [],
-    pathname: ''
+    holdingsToRenderInitial: [],
+    pathname: '',
+    filter: '',
+    filterValue: '',
+    mounted: false,
+    page: ''
   };
 
   async componentDidMount() {
@@ -21,6 +38,16 @@ class Holdings extends Component {
       this.mounting();
     }
   }
+  filter = (filterCat, filter) => {
+    const {holdingsToRenderInitial} = this.state
+    const filtered = [];
+    holdingsToRenderInitial.forEach(holding =>
+      (holding[filterCat] === filter
+        ? filtered.push(holding)
+        : console.log('holding')));
+
+    this.setState({ holdingsToRender: filtered, filter: filterCat, filterValue: filter });
+  };
 
   mounting = () => {
     const { pathname } = this.props.location;
@@ -31,93 +58,140 @@ class Holdings extends Component {
       const leasable = [];
       const reducer = property => property.leasable && leasable.push(property);
       holdings.properties.forEach(property => reducer(property));
-      this.setState({ page: 'Leasing Opportunities', holdingsToRender: leasable, pathname: target });
+      this.setState({
+        page: 'Leasing Opportunities',
+        holdingsToRender: leasable,
+        holdingsToRenderInitial: leasable,
+        pathname: target,
+        mounted: true
+      });
     } else if (target === 'all-properties') {
       this.setState({
         page: 'All Properties',
         holdingsToRender: holdings.properties,
-        pathname: target
+        holdingsToRenderInitial: holdings.properties,
+        pathname: target,
+        mounted: true
       });
     } else {
       this.setState({
         page: 'Developments',
         holdingsToRender:
           holdings[target === 'development' ? 'developments' : target],
-          pathname: target
+          holdingsToRenderInitial:
+          holdings[target === 'development' ? 'developments' : target],
+        pathname: target,
+        mounted: true
       });
     }
   };
-  render() {
-    const { type, page, holdingsToRender, pathname } = this.state;
 
+  render() {
+    const dumbArr = [true, false, true, true, true, false];
+    const {
+      type,
+      page,
+      holdingsToRender,
+      pathname,
+      holdingsCities,
+      filter, filterValue,
+      mounted
+    } = this.state;
+    console.log(holdingsCities);
     console.log(type, page);
-    return (
+    return mounted ? (
       <div>
-        <WindoW>
           <Divider
             border
             backgroundColor="background-primary"
             color="color-secondary"
           >
-            <h1 className="headline-3">{page}</h1>
+            <Flex column>
+              <h1 className="headline-4">{page}</h1>
+              <Flex row>
+                <div className="menu">
+                  <button className="button ">{filter === '' ? 'City' : filterValue}</button>
+                  <div className="menu-content">
+                    {citys.map(city => {
+                      return (
+                        <div
+                          className="body-1 menu-item"
+                          onClick={() => this.filter('city', city)}
+                        >
+                          {city}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </Flex>
+            </Flex>
           </Divider>
-          {holdingsToRender.map((holding, index) => {
-            return (
-              <div className="m-30px">
-                <Block
-                  key={holding.name}
-                  column
-                  onClick={() =>
-                    this.props.history.push({
-                      pathname: `/holdings/${pathname}/${holding.name + index}`,
-                      state: { holding }
-                    })
-                  }
-                  image
-                  color="color-primary"
-                  type="info-card"
-                  backgroundColor="background-secondary"
-                  style={{
-                    maxWidth: '400px',
-                    maxHeight: '450px',
-                    height: '110%'
-                  }}
-                >
-                  <img src={holding.image} />
-                  <h6 className="headline-5">{holding.name}</h6>
-                  <p className="body-1 text-center">{holding.location}</p>
-                  {page === 'Developments' &&
-                    (holding.leasable ? (
-                      <p className="body-2 text-center color-green">
-                        {holding.name} is Ready for Development
-                      </p>
-                    ) : (
-                      <p className="body-2 text-center">
-                        More Information Coming Soon.
-                      </p>
-                    ))}
-                  {page === 'Leasing Opportunities' &&
-                    (holding.leasable ? (
-                      <p className="body-2 text-center color-green">
-                        <strong>Availabilty</strong> {holding.availabilities}.
-                      </p>
-                    ) : (
-                      <div />
-                    ))}
-                     {page === 'All Properties' &&
-                    (holding.leasable ? (
-                      <p className="body-2 text-center color-green">
-                        {holding.name} has leasing opportunities.
-                      </p>
-                    ) : (
-                      <div />
-                    ))}
-                </Block>
+        <WindoW column background="background-secondary">
+          <hr />
+          <Flex column>
+            {filter === '' && (
+              <div className="flex row wrap w-100 align-center">
+                <HoldingCard
+                  holding={holdingsToRender[4]}
+                  page={page}
+                  pathname={pathname}
+                  index={4}
+                  display="holding__first"
+                />
+                <div className="holding__second">
+                  <HoldingCard
+                    holding={holdingsToRender[0]}
+                    page={page}
+                    pathname={pathname}
+                    index={1}
+                    display="holding__second__child"
+                  />
+                  <HoldingCard
+                    holding={holdingsToRender[3]}
+                    page={page}
+                    pathname={pathname}
+                    index={3}
+                    display="holding__second__child"
+                  />
+
+                  <HoldingCard
+                    holding={holdingsToRender[2]}
+                    page={page}
+                    pathname={pathname}
+                    index={3}
+                    display="holding__second__child"
+                  />
+                </div>
               </div>
-            );
-          })}
+            )}
+            <Flex row>
+              {holdingsToRender.length > 0 ? (
+                holdingsToRender.map((holding, index) => {
+                  return !dumbArr[index] || filter !== '' ? (
+                    <HoldingCard
+                      key={holding.name}
+                      holding={holding}
+                      page={page}
+                      pathname={pathname}
+                      index={index}
+                    />
+                  ) : (
+                    <div />
+                  );
+                })
+              ) : (
+                <div>
+                  <h4 className="headline-4">Sorry...</h4>
+                   <p className="body-1">Seems there were not matchest to the filter you appied</p>
+                </div>
+              )}
+            </Flex>
+          </Flex>
         </WindoW>
       </div>
+    ) : (
+      <Loader />
     );
   }
 }

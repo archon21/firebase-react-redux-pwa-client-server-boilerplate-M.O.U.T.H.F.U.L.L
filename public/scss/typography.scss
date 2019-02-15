@@ -1,14 +1,32 @@
 $font-primary: 'Montserrat', sans-serif;
 $font-secondary: 'Questrial', sans-serif;
 
+h1
+h2
+h3
+h4
+h5
+h6 {
+  margin: .4rem!important;
+  padding: .4rem!important;
+
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin: 0!important;
-  padding: 10px!important;
+
+  margin-block-start: .4rem!important;
+margin-block-end: .4rem!important;
+font-weight: normal;
+}
+
+p {
+  margin: .4rem!important;
+  padding: .4rem!important;
 }
 
 .body-1 {

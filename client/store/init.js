@@ -1,6 +1,6 @@
 const defaultState = {
-  phone: '860.205.5555',
-  company: 'Archon Tech',
+  phone: '860.646.0131',
+  company: 'Hayes Developers',
   charities: [
     'Manchester Memorial Hospital',
     'Juvenile Diabetes Foundation',

@@ -2,7 +2,8 @@
 
 
 #nav-h a:hover {
-  border: 2px solid $color-secondary;
+  border-top: 2px solid $color-secondary;
+  border-bottom: 2px solid $color-secondary;
   border-radius: 5px;
   transition: all 0.3s;
 }
@@ -11,11 +12,13 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px,
     rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
   background: $color-primary;
+  z-index: 200;
 }
 
 #nav-h {
   min-height: 80px;
   background: $color-primary;
+  z-index: 200;
 }
 
 .nav-h__upper {
@@ -97,7 +100,8 @@
 .nav__logo {
   width: 400px;
   object-fit: contain;
-  height: 87px;
+  height: 70px;
+  margin: 5px;
 }
 
 .nav-h__links {
@@ -119,18 +123,23 @@
 }
 
 .selected {
-  border: 2px solid $color-secondary;
+  border-top: 2px solid $color-secondary;
+  border-bottom: 2px solid $color-secondary;
   border-radius: 5px;
   transition: all 0.3s;
 }
 
-@media only screen and (max-width: 600px) {
+
+
+
+
+@media only screen and (max-width: 757px) {
   .nav__logo {
     display: none;
   }
 
   .open {
-    height:320px;
+    height:390px;
   }
 
 }

@@ -25,15 +25,26 @@ class App extends Component {
         <Fab
           options={[
             {
+              name: 'meeting_room',
+              label: 'Opportunities',
+              action: () => this.props.history.push('/holdings/opportunities')
+            },
+            {
+              name: 'view_agenda',
+              label: 'Developments',
+              action: () => this.props.history.push('/holdings/development')
+            },
+            {
+              name: 'location_city',
+              label: 'Properties',
+              action: () => this.props.history.push('/holdings/all-properties')
+            },
+            {
               name: 'arrow_upward',
               label: 'Back To Top',
               action: () => window.scrollTo(0, 0)
-            },
-            {
-              name: 'home',
-              label: 'Properties',
-              action: () => this.props.history.push('/holdings/properties')
             }
+
           ]}
         />
         <Alert

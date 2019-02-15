@@ -56,43 +56,42 @@ class Home extends Component {
         <WindoW video>
           <Video video="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/Hayes%20Developers.mp4?alt=media&token=6a7ba0b0-fee5-4cd7-ab8a-767d9c4aeaa4" />
         </WindoW>
-
-          <Animator
-            inRef={aboutBlock}
-            scrolled={scrolled}
-            animation="a-wrapper--opacity"
-            maxHeight="maxh-400px"
-            maxWidth="maxw-800px"
+        <Animator
+          inRef={aboutBlock}
+          scrolled={scrolled}
+          animation="a-wrapper--opacity"
+          maxHeight="maxh-500px"
+          maxWidth="maxw-800px"
+        >
+          <Block
+            column
+            type="info-card"
+            backgroundColor="background-secondary"
+            color="color-primary"
           >
-            <Block
-              column
-              type="info-card"
-              backgroundColor="background-secondary"
-              color="color-primary"
+            <p className="body-1 p-20px">
+              <i>
+              Since 1974, Hayes Developers has been a leader in real estate
+              development, leasing and property management of retail shopping
+              centers. Our longevity and integrity are why many companies in the
+              New England area trust the Hayes Team with their development
+              needs.
+              </i>
+            </p>
 
-            >
-              <p className="body-1 p-20px">
-                Since 1974, Hayes Developers has been a leader in real estate
-                development, leasing and property management of retail shopping
-                centers. Our longevity and integrity are why many companies in
-                the New England area trust the Hayes Team with their development
-                needs.
-              </p>
-
-              <Link to={{ pathname: '/hayes-team' }} className="headliner-4">
-                <h4 className="headline-4 color-primary">
-                  Read More about the Hayes Team
-                </h4>
-              </Link>
-            </Block>
-          </Animator>
-
+            <Link to={{ pathname: '/hayes-team' }} className="headliner-4">
+              <h4 className="headline-4 color-primary">
+                Read More about the Hayes Team
+              </h4>
+            </Link>
+          </Block>
+        </Animator>
         <Divider
           border
           backgroundColor="background-primary"
           color="color-secondary"
         >
-          <h1 className="headline-3">Community</h1>
+          <h1 className="headline-4">Community</h1>
         </Divider>
         <WindoW
           column
@@ -103,7 +102,7 @@ class Home extends Component {
               inRef={charity1}
               scrolled={scrolled}
               animation="a-wrapper--left"
-              maxHeight="maxh-450px"
+              maxHeight="maxh-500px"
               maxWidth="maxw-450px"
             >
               <Block column type="info-card" full>
@@ -121,8 +120,8 @@ class Home extends Component {
               inRef={charity2}
               scrolled={scrolled}
               animation="a-wrapper--right"
-              maxHeight="maxh-450px"
-              maxWidth="maxw-400px"
+              maxHeight="maxh-500px"
+              maxWidth="maxw-450px"
             >
               <Block
                 column
@@ -139,7 +138,7 @@ class Home extends Component {
               inRef={charity3}
               scrolled={scrolled}
               animation="a-wrapper--left"
-              maxHeight="maxh-450px"
+              maxHeight="maxh-500px"
               maxWidth="maxw-400px"
             >
               <Block
@@ -155,7 +154,7 @@ class Home extends Component {
               inRef={charity4}
               scrolled={scrolled}
               animation="a-wrapper--right"
-              maxHeight="maxh-450px"
+              maxHeight="maxh-500px"
               maxWidth="maxw-400px"
             >
               <Block
@@ -174,7 +173,7 @@ class Home extends Component {
           backgroundColor="background-primary"
           color="color-secondary"
         >
-          <h1 className="headline-3">Sporting Events</h1>
+          <h1 className="headline-4">Sporting Events</h1>
         </Divider>
         <WindoW backgroundUrl="https://firebasestorage.googleapis.com/v0/b/ryan-wetmore.appspot.com/o/aerial-view-architecture-autumn-280221.jpg?alt=media&token=abcafdb8-c964-40bf-89c8-5b22eb699735">
           <Animator
@@ -212,36 +211,46 @@ class Home extends Component {
           backgroundColor="background-primary"
           color="color-secondary"
         >
-          <h1 className="headline-3">Awards</h1>
+          <h1 className="headline-4">Awards</h1>
         </Divider>
 
         <WindoW
           column={true}
           backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/newington-cvs%2FIMG_5701.JPG?alt=media&token=2cad2089-cd56-4c53-b2b0-5cf4f1aaa879"
         >
+         <Flex column>
+
           <Animator
             inRef={carousel}
             scrolled={scrolled}
             animation="a-wrapper--opacity"
-            maxHeight="maxh-450px"
-            maxWidth="maxw-900px"
+            maxHeight="maxh-400px"
+            maxWidth="maxw-400px"
           >
+
+
             <Carousel
               contain
+              maxHeight="maxh-400px"
               items={[
                 {
+                  primary: 'Connecticut General Assembly',
                   image:
                     'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGeneralAssembly1999.jpg?alt=media&token=4b1672b6-3c20-4478-bc86-40188c4d2ecd'
                 },
                 {
+                  primary: 'Ground Breaking, Fenn Road Plaza',
                   image:
                     'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FGroundbreakingFennRdNewington1992.jpg?alt=media&token=30b57496-f2cf-447c-b4f0-add9c3585caf'
                 },
                 {
+                  primary: 'East Catholic High School',
                   image:
                     'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FECHS1986.jpg?alt=media&token=289c1ccf-a773-4d2b-8d48-efd2e0ec67f8'
                 },
                 {
+                  primary:
+                    'Newington Chambeer of Commerce, Beautification Award',
                   image:
                     'https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/awards%2FNewingtonBeautificationAward1999.jpg?alt=media&token=c1aefb84-224c-4eec-865c-c9618b051ca2'
                 },
@@ -251,7 +260,9 @@ class Home extends Component {
                 }
               ]}
             />
+
           </Animator>
+         </Flex>
         </WindoW>
       </div>
     );
