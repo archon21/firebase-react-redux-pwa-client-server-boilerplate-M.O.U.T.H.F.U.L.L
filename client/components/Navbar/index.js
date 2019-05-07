@@ -38,14 +38,26 @@ class Navbar extends Component {
       <nav id="nav-h" className="flex column black align-center">
         <div className="nav-h__upper flex row items-center">
           <NavHButton open={open} toggleNavH={this.toggleNavH} />
-          <Link to={{pathname: '/'}}>
-          <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/logo.png?alt=media&token=a014a66a-b1c2-411c-bede-55117ca8e205" className="nav__logo" />
+          <Link to={{ pathname: '/' }}>
+            <span className="nav__logo-text">Logo</span>
+            {/* <img src="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/logo.png?alt=media&token=a014a66a-b1c2-411c-bede-55117ca8e205" className="nav__logo" /> */}
           </Link>
         </div>
 
-        <div className={` ${!open && 'open'} nav-h__lower flex row wrap align-center justify-center nav-h__links `}>
+        <div
+          className={` ${!open &&
+            'open'} nav-h__lower flex row wrap align-center justify-center nav-h__links `}
+        >
           <Link
-            className={`headline-6 color-white p-5px ${selectedLink ===
+            className={`headline-6 p-5px nav__link ${selectedLink === 'home' &&
+              'selected'}`}
+            to={{ pathname: '/home' }}
+            onClick={() => this.selectLink('home')}
+          >
+            HOME
+          </Link>
+          <Link
+            className={`headline-6  p-5px nav__link ${selectedLink ===
               'about' && 'selected'}`}
             to={{ pathname: '/about' }}
             onClick={() => this.selectLink('about')}
@@ -53,49 +65,15 @@ class Navbar extends Component {
             ABOUT
           </Link>
           <Link
-            className={`headline-6 color-white p-5px ${selectedLink ===
-              'hayes-team' && 'selected'}`}
-            to={{ pathname: '/hayes-team' }}
-            onClick={() => this.selectLink('hayes-team')}
+            className={`headline-6  p-5px nav__link ${selectedLink === 'info' &&
+              'selected'}`}
+            to={{ pathname: '/info' }}
+            onClick={() => this.selectLink('info')}
           >
-            THE HAYES TEAM
+            INFO
           </Link>
-          <Link
-            className={`headline-6 color-white p-5px ${selectedLink ===
-              'property-services' && 'selected'}`}
-            to={{ pathname: '/property-services' }}
-            onClick={() => this.selectLink('property-services')}
-          >
-            PROPERTY MANAGEMENT
-          </Link>
-          <Link
-            className={`headline-6 color-white p-5px ${selectedLink ===
-              'development' && 'selected'}`}
-            onClick={() => this.selectLink('development')}
-            to={{ pathname: '/holdings/development' }}
-          >
-            DEVELOPMENTS
-          </Link>
-          <Link
-            className={`headline-6 color-white p-5px ${selectedLink ===
-              'opportunities' && 'selected'}`}
-            to={{ pathname: '/holdings/opportunities' }}
-            onClick={() => this.selectLink('opportunities')}
-          >
-            OPPORTUNITIES
-          </Link>
-          <Link
-            className={`headline-6 color-white p-5px ${selectedLink ===
-              'all-properties' && 'selected'}`}
-            to={{ pathname: '/holdings/all-properties' }}
-            onClick={() => this.selectLink('all-properties')}
-          >
-            ALL PROPERTIES
-          </Link>
-          <h1
-            className="headline-6 color-white"
-            onClick={this.openContact}
-          >
+
+          <h1 className="headline-6 p-5px nav__link" onClick={this.openContact}>
             CONTACT
           </h1>
         </div>
