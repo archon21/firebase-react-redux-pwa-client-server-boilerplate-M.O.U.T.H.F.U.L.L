@@ -1,10 +1,18 @@
 import React from 'react';
 
 const WindoW = props => {
-  const { backgroundUrl, background, maxWidth, column, padding, video, align } = props;
+  const {
+    backgroundUrl,
+    background,
+    maxWidth,
+    column,
+    padding,
+    video,
+    align
+  } = props;
   return (
     <div
-      style={{overflowX: 'hidden', backgroundImage: `url(${backgroundUrl})` }}
+      style={{ overflowX: 'hidden', backgroundImage: `url(${backgroundUrl})` }}
       className={`${background && background} ${padding &&
         padding} ${backgroundUrl && 'background-cover'} flex ${
         column ? 'column' : 'row'

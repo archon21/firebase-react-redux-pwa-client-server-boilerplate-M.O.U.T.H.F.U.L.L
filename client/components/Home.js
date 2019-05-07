@@ -71,11 +71,11 @@ class Home extends Component {
           >
             <p className="body-1 p-20px">
               <i>
-              Since 1974, Hayes Developers has been a leader in real estate
-              development, leasing and property management of retail shopping
-              centers. Our longevity and integrity are why many companies in the
-              New England area trust the Hayes Team with their development
-              needs.
+                Since 1974, Hayes Developers has been a leader in real estate
+                development, leasing and property management of retail shopping
+                centers. Our longevity and integrity are why many companies in
+                the New England area trust the Hayes Team with their development
+                needs.
               </i>
             </p>
 
@@ -218,20 +218,12 @@ class Home extends Component {
           column={true}
           backgroundUrl="https://firebasestorage.googleapis.com/v0/b/hayesdevelopers.appspot.com/o/newington-cvs%2FIMG_5701.JPG?alt=media&token=2cad2089-cd56-4c53-b2b0-5cf4f1aaa879"
         >
-         <Flex column>
-
-          <Animator
-            inRef={carousel}
-            scrolled={scrolled}
-            animation="a-wrapper--opacity"
-            maxHeight="maxh-400px"
-            maxWidth="maxw-400px"
-          >
-
-
+          <Flex column>
             <Carousel
               contain
-              maxHeight="maxh-400px"
+              maxHeight="maxh-100vh"
+              height="h-100"
+              width="w-100"
               items={[
                 {
                   primary: 'Connecticut General Assembly',
@@ -260,9 +252,7 @@ class Home extends Component {
                 }
               ]}
             />
-
-          </Animator>
-         </Flex>
+          </Flex>
         </WindoW>
       </div>
     );

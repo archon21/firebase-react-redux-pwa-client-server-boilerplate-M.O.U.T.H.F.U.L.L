@@ -16,7 +16,7 @@ class Video extends Component {
         style={{ overflow: 'hidden'}}
         autoPlay
         loop
-        className="maxw-100 h-100 object-cover"
+        className="maxw-100 h-100 object-cover w-100"
         src={video}
       />
     );

@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { WindoW } from './containers';
 
-
-class NotFound extends Component{
+class NotFound extends Component {
   render() {
     return (
-      <div>
-          <h1>Hmm...</h1>
-          <h2>Seems We could not find the page you were looking for.</h2>
-      </div>
+      <WindoW>
+        <h1>Hmm...</h1>
+        <h2>Seems We could not find the page you were looking for.</h2>
+      </WindoW>
     );
   }
 }
 
-export default NotFound
+export default NotFound;
