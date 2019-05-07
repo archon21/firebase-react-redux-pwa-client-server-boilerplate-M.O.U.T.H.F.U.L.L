@@ -1,1 +1,7 @@
 @import './color.scss';
+
+#footer {
+    background: $color-primary;
+    color: $color-tirciary;
+    width: 100vw;
+}

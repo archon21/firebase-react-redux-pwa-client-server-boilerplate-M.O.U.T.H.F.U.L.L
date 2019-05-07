@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { WindoW } from '../sub-components/containers';
 
-class Info extends Component {
+class About extends Component {
   state = {};
 
   render() {
@@ -13,4 +13,4 @@ class Info extends Component {
   }
 }
 
-export default Info;
+export default About;

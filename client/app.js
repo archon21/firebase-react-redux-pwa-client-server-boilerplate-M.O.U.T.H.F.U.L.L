@@ -13,7 +13,7 @@ class App extends Component {
     mounted: false
   };
   async componentDidMount() {
-    await this.props.willReadDB('all');
+    // await this.props.willReadDB('all');
     this.setState({ mounted: true });
     console.log(this.props.menu);
   }

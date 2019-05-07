@@ -22,3 +22,7 @@ A general use boilerplate for all tags listed in the name. I use it for most of 
     3. React preset
 - Ill add the rest later...
 
+#### Steps
+
+- npm install
+- touch secrets.js
